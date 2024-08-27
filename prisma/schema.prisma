@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SellerUser{
+  id Int @id @default(autoincrement())
+  Firstname String
+  LastName String
+  Email String @unique
+  Password String
+  ConfirmPassword String
+  phoneNumber String
+  Address1 String
+  Address2  String?
+  City String
+  State String
+  Zip String
+  Country String
+  PanCardNumber String
+  AadharCardNumber String
+  GSTNumber String?
+
+
+
+}
+model BookToSell{
+    id Int @id @default(autoincrement())
+name String
+ description String
+ price String
+ imageUrl String
+ class String
+ author String
+
+}
+model Subject{
+  id Int @id @default(autoincrement())
+  subject String
+}
+model Class{
+   id Int @id @default(autoincrement())
+   class String
+ }
+ 
+  model Category{
+   id Int @id @default(autoincrement())
+  category String
+
+  }
+ model Order {
+  id             Int      @id @default(autoincrement())
+  bookname       String
+  price          String
+  quantity       Int
+  totalprice      String
+  orderdate      Int
+  sessionId      String
+  buyername      String
+  buyeremail     String
+  buyerphone     String
+
+  buyeraddress   Address   @relation(fields: [id], references: [id])
+
+  buyerphonenumber String
+}
+
+model Address {
+  id     Int    @id @default(autoincrement())
+  line1  String
+  line2  String?
+  city   String
+  state  String
+  postalcode String
+  country String
+
+  orders Order[]  // This field defines the one-to-many relationship back to the Order model
+}
+  
