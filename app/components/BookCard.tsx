@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react'
 interface Book {
@@ -18,7 +19,7 @@ function BookCard(book:Book) {
   return (
     <div className="w-72 bg-white  rounded-xl duration-500 hover:scale-105 hover:shadow-xl shadow-[0px_16px_16px_0px_#0000004d,0px_16px_16px_0px_#0000004d,0px_16px_16px_0px_#0000004d]">
     <a href="#">
-        <img src={book?.imageUrl}
+        <Image width={100}height={100} src={book?.imageUrl}
                 alt="Product" className="h-80 w-72 object-cover rounded-t-xl" data-aos="zoom-in"/>
         <div className="px-4 py-3 w-72">
             <span className="text-gray-400 mr-3 uppercase text-xs">Brand</span>

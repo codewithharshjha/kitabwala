@@ -54,7 +54,7 @@ function FourthSection() {
         {allBooks && allBooks.length>0 ?
         (
 allBooks.slice(0,4).map((book,index)=>(
-  <CardContainer className="inter-var"data-aos="zoom-in">
+  <CardContainer className="inter-var"data-aos="zoom-in" key={index}>
       <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[20rem] h-auto rounded-xl p-6 border  ">
         <CardItem
           translateZ="50"

@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from 'next/navigation';
 
-function page() {
+function Page() {
   const[sellerUser,setSellerUser]=useState<SellerUser>({
   
     phoneNumber:"",
@@ -258,4 +258,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

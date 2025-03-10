@@ -7,8 +7,9 @@ import axios from 'axios'
 
 import { useToast } from '@/components/ui/use-toast'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
-function page() {
+function Page() {
 const[category,setCategory]=useState("")
 const {toast}=useToast()
 const[subject,setSubject]=useState("")
@@ -137,7 +138,7 @@ if(category.length>0){
   </div>
 
   <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
-    <img
+    <Image width={100} height={100}
       alt=""
       src="/book3.jpg"
       className="absolute inset-0 h-full w-full object-cover"
@@ -149,4 +150,4 @@ if(category.length>0){
   )
 }
 
-export default page
+export default Page

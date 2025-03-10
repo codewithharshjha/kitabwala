@@ -22,6 +22,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import { ScrollAreaScrollbar } from "@radix-ui/react-scroll-area";
+import Image from "next/image";
 
 
 
@@ -125,7 +126,7 @@ useEffect(() => {
     <div className="relative h-16 flex justify-between">
       <div className="relative z-10 px-2 flex lg:px-0">
         <div className="flex-shrink-0 flex items-center">
-          <img className="block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"/>
+          <Image width={100}height={100} className="block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"/>
           <span className=" font-bold text-2xl text-white">Kitabwalah</span>
         </div>
       </div>

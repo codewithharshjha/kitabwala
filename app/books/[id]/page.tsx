@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
-function page() {
+function Page() {
   const [bookdata,setBookdata]=useState<BookToSell[]>([])
     const id=useParams()
   const toast=useToast()
@@ -38,4 +38,4 @@ console.log(bookdata)
   )
 }
 
-export default page
+export default Page
