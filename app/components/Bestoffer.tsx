@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import useOutsideClick from "@/hooks/useOutslideClick";
 
 
 export function ExpandableCardDemo() {
