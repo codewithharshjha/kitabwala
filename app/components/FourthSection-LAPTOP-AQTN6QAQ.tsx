@@ -7,8 +7,8 @@ import ProductCard from './ProductCard'
 import { useToast } from '@/components/ui/use-toast'
 import axios from 'axios'
 import Link from 'next/link'
-import { Card, CardDescription, CardTitle, HoverEffect } from '@/components/ui/card-hover-effect'
-import CategorySection from './CategorySection'
+
+
 
 function FourthSection() {
   const toast=useToast()
