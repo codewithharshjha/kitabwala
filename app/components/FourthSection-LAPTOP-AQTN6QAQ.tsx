@@ -43,7 +43,7 @@ function FourthSection() {
       }, []);
     
 
- 
+      
  
   return (
     <div className='  p-5 rounded-2xl h-auto w-auto overflow-auto bg-gradient-to-r from-teal-50 to-cyan-500'>
@@ -51,7 +51,7 @@ function FourthSection() {
         <h1 className=' text-4xl font-bold' data-aos="zoom-in-" >Popular Books</h1>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4  '>
-      {allBooks && allBooks.length>0 ?
+        {allBooks && allBooks.length>0 ?
         (
 allBooks.slice(0,4).map((book,index)=>(
   <CardContainer className="inter-var"data-aos="zoom-in">
@@ -62,7 +62,13 @@ allBooks.slice(0,4).map((book,index)=>(
         >
           {book.name}
         </CardItem>
-       
+        <CardItem
+          as="p"
+          translateZ="60"
+          className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+        >
+         {book.description}
+        </CardItem>
         <CardItem
           translateZ="100"
           rotateX={20}
@@ -101,6 +107,7 @@ allBooks.slice(0,4).map((book,index)=>(
         ):(
           <span className=' font-bold text-4xl'>No Book Found</span>
         )}
+
     
   
       </div>

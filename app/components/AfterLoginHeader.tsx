@@ -41,7 +41,7 @@ useEffect(() => {
   })
   .then((res) => {
     const response = res.data;
-   
+   console.log('response of selleruser',response.status)
     if (response.status === 400) {
       setIsSellerUser(false);
     } else if (response.status === 200) {
@@ -183,9 +183,8 @@ useEffect(() => {
 
   <Link href="/allbooks" className=" text-gray-500 hover:bg-gray-50 hover:text-gray-900 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"> Books </Link>
 
-  <a href="#" className="text-gray-500 hover:bg-gray-50 hover:text-gray-900 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"> Projects </a>
 
-  <a href="#" className="text-gray-500 hover:bg-gray-50 hover:text-gray-900 rounded-md py-2 px-3 inline-flex items-center text-sm font-medium"> Calendar </a>
+
 
 
 

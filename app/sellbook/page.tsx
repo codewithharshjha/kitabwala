@@ -10,7 +10,7 @@ import axios from 'axios';
 
 function Page() {
   const [bookToSell, setBookToSell] = useState<BookToSell>({
-   
+
     name: "",
     description: "",
     category: "",
@@ -19,6 +19,7 @@ function Page() {
     class: "",
     author: ""
   });
+
   const[errors,setErrors]=useState<BookToSellErrorType>()
   const [imageFile, setImageFile] = useState<File | null>(null); // Update type to File | null
 const[loading,setLoading]=useState<boolean>(false)
@@ -67,18 +68,20 @@ const[loading,setLoading]=useState<boolean>(false)
         imageUrl = await uploadImage();
       }
 axios.post("/api/sellbook",{...bookToSell,imageUrl}).then((res=>{
-  setLoading(false)
+  
   const response=res.data
   console.log(response)
   if (response.status == 400) {
+    setLoading(false)
     setErrors(response.errors);
-    console.log(response.errors)
+
     toast.error(`${response.message}`, {
      position: "top-right",
    });
   
   } 
   else if (response.status == 200) {
+    setLoading(false)
     toast.success("Success Notification !", {
       position: "top-right",
    
@@ -92,6 +95,7 @@ setBookToSell({
     imageUrl: "",
     class: "",
     author: "",
+    
   
 })
   }

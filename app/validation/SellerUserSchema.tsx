@@ -28,7 +28,7 @@ import { parsePhoneNumberFromString } from 'libphonenumber-js';
 })
 export const BookToSellSchema=vine.object({
   name:vine.string(),
-  description:vine.string().minLength(15).maxLength(100),
+  description:vine.string().minLength(15),
   price:vine.string(),
   imageUrl:vine.string(),
   category:vine.string(),

@@ -1,6 +1,7 @@
 import prisma from "@/db.config";
 import { clerkClient, getAuth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
+import { json } from "stream/consumers";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 interface Address {
@@ -22,10 +23,10 @@ export async function POST(request: NextRequest) {
     const {userId}=getAuth(request)
 
     const user = userId ? await clerkClient.users.getUser(userId) : null;
-    console.log(user)
+    
     const emailaddress=user?.primaryEmailAddress?.emailAddress
     const phonenumber=user?.primaryPhoneNumber?.phoneNumber
-console.log(userId)
+
     const redirectURL =
         process.env.NODE_ENV === 'development'
             ? 'http://localhost:3000'
@@ -61,35 +62,35 @@ console.log(userId)
             },
         });
 console.log("this is session id",session)
-const order=await prisma.order.create({
-   data:{
-       bookname:book.name,
-    price:session?.amount_subtotal,
-    quantity:1,
-    totlprice:session?.amount_subtotal+40,
-
-    sessionId:session.id,
-    buyername:customer.name,
-
-    buyeremail:emailaddress!,
-    buyerphone:phonenumber!,
-
-buyeraddress:JSON.stringify(customer.address),
-buyerphonenumber:phonenumber!,
-orderdate:JSON.stringify(Date.now())
-
-
-
-
-
-    
-
-    
-    
-    
-   }
-   
-})
+const address = await prisma.address.create({
+    data: {
+      line1: customer.address.line1,
+      line2: customer.address.line2 || "",
+      city: customer.address.city,
+      state: customer.address.state,
+      postalcode: customer.address.postalcode,
+      country: customer.address.country,
+    }
+  });
+  const order = await prisma.order.create({
+    data: {
+      bookname: book.name,
+      price:session?.amount_subtotal.toString(),
+      quantity: 1,
+      totalprice: (session?.amount_subtotal + 40).toString(),
+      sessionId: session.id,
+      buyername: customer.name,
+      buyeremail: emailaddress!,
+      buyerphone: phonenumber!,
+      buyerphonenumber: phonenumber!,
+      orderdate: Date.now(),
+      
+      // Link the address using the address ID
+      buyeraddress: {
+        connect: { id: address.id }
+      }
+    }
+  });
 
         return NextResponse.json({ status: 200, id: session.id });
     } catch (error) {

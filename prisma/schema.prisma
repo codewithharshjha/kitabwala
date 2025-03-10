@@ -64,7 +64,7 @@ model Class{
   price          String
   quantity       Int
   totalprice      String
-  orderdate      Int
+  orderdate      BigInt
   sessionId      String
   buyername      String
   buyeremail     String

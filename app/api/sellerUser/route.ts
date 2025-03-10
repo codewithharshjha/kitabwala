@@ -70,8 +70,9 @@ export async function POST (request:NextRequest){
 export async function GET (request:NextRequest){
     try {
         const url = new URL(request.url);
+        console.log('from selleruser navbar',url)
         const email = url.searchParams.get('email'); // Extract email from query parameters
-console.log(email)
+console.log('frombackedn',email)
         if (!email) {
             return NextResponse.json({ status: 400, message: "Email parameter is required" });
         }
