@@ -2,7 +2,7 @@
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { ExpandableCardDemo } from './Bestoffer'
+
 import ProductCard from './ProductCard'
 import { useToast } from '@/components/ui/use-toast'
 import axios from 'axios'
