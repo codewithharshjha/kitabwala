@@ -2,13 +2,12 @@
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { ExpandableCardDemo } from './Bestoffer'
+
 import ProductCard from './ProductCard'
 import { useToast } from '@/components/ui/use-toast'
 import axios from 'axios'
 import Link from 'next/link'
-import { Card, CardDescription, CardTitle, HoverEffect } from '@/components/ui/card-hover-effect'
-import CategorySection from './CategorySection'
+
 
 function FourthSection() {
   const toast=useToast()
@@ -104,24 +103,7 @@ allBooks.slice(0,4).map((book,index)=>(
     
   
       </div>
-      <div  className=' h-auto w-auto bg-gradient-to-r from-fuchsia-500 to-cyan-500 rounded-3xl '>
-        <h1 className=' text-8xl font-bold ml-24 mt-10' data-aos="fade-down-right"> The Best Offer</h1>
-
-        {/* <ExpandableCardDemo/> */}
-        <div className='flex justify-center'>
-  <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-60 mr-24 mt-20'>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-  </div>
-</div>
-      
-      </div>
+     
   
       
     </div>
